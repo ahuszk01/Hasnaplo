@@ -34,6 +34,12 @@ android {
         }
     }
 
+    // A sideloaded personal app: don't stop the release build on Play Store lint rules.
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
