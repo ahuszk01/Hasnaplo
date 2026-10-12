@@ -1,0 +1,41 @@
+plugins {
+    id "com.android.application"
+}
+
+android {
+    namespace "hu.huszka.hasnaplo"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "hu.huszka.hasnaplo"
+        minSdk 29          // Android 10+
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // A fixed key, so every new build installs over the old one and keeps the diary.
+    signingConfigs {
+        release {
+            storeFile file("hasnaplo.keystore")
+            storePassword "hasnaplo"
+            keyAlias "hasnaplo"
+            keyPassword "hasnaplo"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

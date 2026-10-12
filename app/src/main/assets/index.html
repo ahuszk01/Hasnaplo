@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hasnapló</title>
+<style>
+html,body{margin:0}
+@font-face{font-family:"Bricolage Grotesque";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/bricolage-grotesque-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Bricolage Grotesque";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/bricolage-grotesque-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Bricolage Grotesque";font-weight:700;font-style:normal;font-display:swap;src:url(fonts/bricolage-grotesque-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Bricolage Grotesque";font-weight:700;font-style:normal;font-display:swap;src:url(fonts/bricolage-grotesque-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Figtree";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/figtree-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Figtree";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/figtree-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Figtree";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/figtree-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Figtree";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/figtree-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Figtree";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/figtree-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Figtree";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/figtree-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/ibm-plex-mono-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/ibm-plex-mono-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+/* Layout: one mobile-first column; a sticky tab header, a day-grouped timeline, and a fixed three-button add bar at the bottom. */
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --sunk:#e7ece6; --line:#d3dbd2;
+  --fg:#1d2621; --muted:#5d6b62;
+  --accent:#2f6b57; --accent-ink:#ffffff; --accent-soft:#dcebe4;
+  --meal:#3b6ea5; --meal-soft:#e1ebf6;
+  --sym:#b4483a; --sym-soft:#f6e3df;
+  --stool:#8a6a1f; --stool-soft:#f3ebd6;
+  --warn:#c27a12;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121815; --surface:#1a221e; --sunk:#222c27; --line:#2f3b35;
+  --fg:#e6ece8; --muted:#97a69d;
+  --accent:#6cc1a1; --accent-ink:#0d1a14; --accent-soft:#1f3a30;
+  --meal:#86b3e6; --meal-soft:#1d2b3c;
+  --sym:#ec8a7b; --sym-soft:#3a2420;
+  --stool:#d9b55d; --stool-soft:#352c16;
+  --warn:#e9a64a; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#121815; --surface:#1a221e; --sunk:#222c27; --line:#2f3b35;
+  --fg:#e6ece8; --muted:#97a69d;
+  --accent:#6cc1a1; --accent-ink:#0d1a14; --accent-soft:#1f3a30;
+  --meal:#86b3e6; --meal-soft:#1d2b3c;
+  --sym:#ec8a7b; --sym-soft:#3a2420;
+  --stool:#d9b55d; --stool-soft:#352c16;
+  --warn:#e9a64a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:680px;margin:0 auto;padding-inline:16px;padding-block:0 120px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:14px 0;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.status{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+.tabs{display:flex;gap:4px;margin-top:10px}
+.tab{appearance:none;border:0;background:none;color:var(--muted);font:600 .95rem var(--f-body);padding:10px 12px;border-bottom:3px solid transparent;cursor:pointer}
+.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
+.tab:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.banner{margin-top:14px;padding:10px 12px;border-radius:var(--r);background:var(--accent-soft);font-size:.9rem;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.banner button{flex:none}
+.btn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);font:600 .9rem var(--f-body);padding:8px 14px;border-radius:999px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:none;border-color:transparent;color:var(--muted)}
+.btn.danger{color:var(--sym);border-color:var(--sym)}
+/* timeline */
+.day{margin-top:22px}
+.dayhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.dayhead h2{font-family:var(--f-display);font-weight:500;font-size:1.1rem;margin:0}
+.daysum{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.list{display:flex;flex-direction:column;gap:6px}
+.entry{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit;position:relative;overflow:hidden}
+.entry::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--k)}
+.entry.meal{--k:var(--meal)} .entry.symptom{--k:var(--sym)} .entry.stool{--k:var(--stool)}
+.time{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);padding-top:1px;font-variant-numeric:tabular-nums}
+.body{min-width:0}
+.title{font-weight:600;overflow-wrap:anywhere}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.chip{font-size:.75rem;padding:2px 8px;border-radius:999px;background:var(--sunk);color:var(--muted)}
+.note{font-size:.85rem;color:var(--muted);margin-top:3px;overflow-wrap:anywhere}
+.sev{font-family:var(--f-mono);font-weight:500;font-size:.85rem;min-width:44px;text-align:center;padding:3px 6px;border-radius:8px;background:var(--sym-soft);color:var(--sym);font-variant-numeric:tabular-nums}
+.kindtag{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--k);font-weight:600}
+.empty{margin-top:28px;padding:22px;border:1px dashed var(--line);border-radius:var(--r);background:var(--surface)}
+.empty h2{font-family:var(--f-display);font-weight:500;margin:0 0 6px;font-size:1.2rem}
+.empty p{margin:0 0 10px;color:var(--muted);max-width:60ch}
+.empty .row{display:flex;gap:8px;flex-wrap:wrap}
+/* add bar */
+.addbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.addbar .in{max-width:680px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.add{appearance:none;border:0;border-radius:var(--r);padding:12px 6px;font:600 .95rem var(--f-body);cursor:pointer;background:var(--ks);color:var(--k)}
+.add.meal{--k:var(--meal);--ks:var(--meal-soft)} .add.symptom{--k:var(--sym);--ks:var(--sym-soft)} .add.stool{--k:var(--stool);--ks:var(--stool-soft)}
+.add span{display:block;font-size:.7rem;font-weight:500;opacity:.8}
+/* sheet */
+.scrim{position:fixed;inset:0;z-index:10;background:rgba(10,16,13,.45);display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--bg);width:100%;max-width:680px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px))}
+.sheet h2{font-family:var(--f-display);font-weight:700;font-size:1.35rem;margin:0 0 12px;color:var(--k)}
+.field{margin-bottom:16px}
+.field > label,.lbl{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:var(--muted);margin-bottom:6px}
+input[type=text],input[type=datetime-local],textarea{width:100%;font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+textarea{min-height:64px;resize:vertical}
+.pick{display:flex;flex-wrap:wrap;gap:6px}
+.pick button{appearance:none;font:500 .88rem var(--f-body);padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.pick button[aria-pressed="true"]{background:var(--k);border-color:var(--k);color:var(--bg)}
+.scale{display:grid;grid-template-columns:repeat(11,1fr);gap:3px}
+.scale button{appearance:none;font:500 .85rem var(--f-mono);padding:9px 0;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.scale button[aria-pressed="true"]{background:var(--sym);border-color:var(--sym);color:var(--bg)}
+.scalecap{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-top:4px}
+.bristol{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.bristol button{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:8px 2px;cursor:pointer;font:600 1rem var(--f-mono)}
+.bristol button small{display:block;font:400 .6rem var(--f-body);color:var(--muted);line-height:1.2;margin-top:2px}
+.bristol button[aria-pressed="true"]{background:var(--stool);border-color:var(--stool);color:var(--bg)}
+.bristol button[aria-pressed="true"] small{color:var(--bg)}
+.bdesc{font-size:.85rem;color:var(--muted);margin-top:6px;min-height:1.3em}
+.actions{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;margin-top:6px}
+.actions .r{display:flex;gap:8px;margin-left:auto}
+.confirmdel{font-size:.85rem;color:var(--sym);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+/* insights */
+.sec{margin-top:24px}
+.sec h2{font-family:var(--f-display);font-weight:500;font-size:1.2rem;margin:0 0 4px}
+.sec p.lead{color:var(--muted);margin:0 0 12px;font-size:.9rem;max-width:62ch}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-bottom:12px}
+.seg button{appearance:none;border:0;background:none;padding:6px 12px;font:600 .82rem var(--f-body);color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.trig{display:grid;grid-template-columns:minmax(0,9rem) 1fr 4.5rem;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.trig:last-child{border-bottom:0}
+.trig .nm{font-weight:600;overflow-wrap:anywhere;font-size:.92rem}
+.trig .nm small{display:block;font-weight:400;color:var(--muted);font-size:.72rem;font-family:var(--f-mono)}
+.bar{position:relative;height:12px;background:var(--sunk);border-radius:6px}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:6px;background:var(--muted)}
+.bar i.hi{background:var(--sym)}
+.bar b{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--fg);opacity:.6}
+.trig .pct{font-family:var(--f-mono);text-align:right;font-variant-numeric:tabular-nums;font-size:.85rem}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.75rem;color:var(--muted);margin-top:10px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.chartbox{overflow-x:auto}
+svg text{fill:var(--muted);font-family:var(--f-mono);font-size:10px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+.stat .v{font-family:var(--f-display);font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+.stat .k{font-size:.75rem;color:var(--muted)}
+.fine{font-size:.8rem;color:var(--muted);margin-top:10px;max-width:62ch}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(86px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:999px;font-size:.88rem;z-index:20}
+@media (prefers-reduced-motion:no-preference){.sheet{animation:up .18s ease-out}@keyframes up{from{transform:translateY(24px);opacity:.6}}}
+@media (max-width:420px){.trig{grid-template-columns:minmax(0,6.5rem) 1fr 3.8rem}.entry{grid-template-columns:44px 1fr auto}}
+</style>
+</head><body>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>Hasnapló</h1>
+      <span class="status" id="status">betöltés…</span>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-log" aria-selected="true">Napló</button>
+      <button class="tab" role="tab" id="tab-ins" aria-selected="false">Összefüggések</button>
+    </div>
+  </header>
+  <div id="demoBanner" class="banner" hidden>
+    <span>Mintanaplót látsz kitalált bejegyzésekkel. Ezek nem mentődnek.</span>
+    <button class="btn" id="demoOff">Vissza a saját naplómhoz</button>
+  </div>
+  <main id="view-log"></main>
+  <main id="view-ins" hidden></main>
+</div>
+
+<nav class="addbar" aria-label="Új bejegyzés">
+  <div class="in">
+    <button class="add meal" data-add="meal">+ Étkezés<span>étel, ital</span></button>
+    <button class="add symptom" data-add="symptom">+ Tünet<span>panasz, erősség</span></button>
+    <button class="add stool" data-add="stool">+ Széklet<span>Bristol-skála</span></button>
+  </div>
+</nav>
+
+<div id="sheetRoot"></div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+(function(){
+"use strict";
+// ---------- vocab ----------
+const FOOD_TAGS=["kávé","alkohol","szénsavas","csípős","zsíros/sült","tejtermék","glutén","paradicsom","citrus","csokoládé","hagyma/fokhagyma","nyers zöldség","hüvelyes","magas rost","cukros","feldolgozott hús","menta","nagy adag"];
+const SYMPTOMS=[
+ {n:"gyomorégés",c:"reflux"},{n:"savas felböfögés",c:"reflux"},{n:"nyelési panasz",c:"reflux"},{n:"köhögés/rekedtség",c:"reflux"},
+ {n:"felhasi égő fájdalom",c:"gastritis"},{n:"teltségérzet",c:"gastritis"},{n:"hányinger",c:"gastritis"},
+ {n:"alhasi fájdalom",c:"Crohn"},{n:"görcsök",c:"Crohn"},{n:"puffadás",c:"Crohn"},{n:"hasmenés",c:"Crohn"},{n:"sürgető székelés",c:"Crohn"},
+ {n:"fáradtság",c:"általános"},{n:"ízületi fájdalom",c:"általános"},{n:"láz",c:"általános"}
+];
+const BRISTOL=[null,"Kemény, külön darabok","Kolbász alakú, göröngyös","Kolbász, repedezett felszín","Sima, puha kolbász","Puha darabok, éles szél","Pépes, kásás","Teljesen folyékony"];
+const BSHORT=[null,"kemény","göröngy","repedt","ideális","puha","pépes","folyós"];
+const HU_DAYS=["vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat"];
+const HU_MON=["jan.","febr.","márc.","ápr.","máj.","jún.","júl.","aug.","szept.","okt.","nov.","dec."];
+
+// ---------- state ----------
+let entries=[];          // real entries
+let demo=null;           // demo entries when demo mode on
+let mode="local";        // local | db
+let db=null, colRef=null;
+let windowH=6;
+let tab="log";
+const LS="hasnaplo.entries.v1";
+
+function lsGet(){try{const v=localStorage.getItem(LS);return v?JSON.parse(v):[]}catch(e){return []}}
+function lsSet(){try{localStorage.setItem(LS,JSON.stringify(entries))}catch(e){}}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
+function list(){return demo||entries}
+
+// ---------- persistence ----------
+async function saveEntry(e){
+  if(demo){toast("Mintanaplóban nem mentünk.");return}
+  const i=entries.findIndex(x=>x.id===e.id);
+  if(i>=0)entries[i]=e;else entries.push(e);
+  lsSet();render();
+  if(mode==="db"){try{await colRef.doc(e.id).set(e)}catch(err){handleDbErr(err)}}
+}
+async function removeEntry(id){
+  if(demo){toast("Mintanaplóban nem törlünk.");return}
+  entries=entries.filter(x=>x.id!==id);lsSet();render();
+  if(mode==="db"){try{await colRef.doc(id).delete()}catch(err){handleDbErr(err)}}
+}
+function handleDbErr(err){
+  const c=err&&err.code;
+  if(c==="quota_exceeded")toast("A tárhely megtelt. Törölj régi bejegyzéseket.");
+  else if(c==="invalid_argument"){mode="local";setStatus();toast("A fiókba mentés nem engedélyezett, ezen az eszközön mentem.")}
+  else toast("Mentés a fiókba most nem sikerült, ezen az eszközön megvan.");
+}
+function setStatus(){
+  const s=document.getElementById("status");
+  s.textContent=demo?"mintanapló":mode==="db"?"mentés a fiókodba ✓":"a telefonon tárolva";
+}
+
+async function connect(){setStatus()}
+
+// ---------- helpers ----------
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad=n=>String(n).padStart(2,"0");
+function localInput(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())+"T"+pad(d.getHours())+":"+pad(d.getMinutes())}
+function dayKey(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+function dayLabel(d){
+  const t=new Date();const y=new Date();y.setDate(t.getDate()-1);
+  const k=dayKey(d);
+  const base=d.getFullYear()+". "+HU_MON[d.getMonth()]+" "+d.getDate()+".";
+  if(k===dayKey(t))return "Ma · "+base;
+  if(k===dayKey(y))return "Tegnap · "+base;
+  return base+" "+HU_DAYS[d.getDay()];
+}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,2600)}
+function mealTags(e){const t=(e.tags||[]).slice();const h=new Date(e.at).getHours();if(h>=21||h<4)t.push("késői étkezés");return t}
+
+// ---------- render: log ----------
+function render(){setStatus();if(tab==="log")renderLog();else renderIns()}
+function renderLog(){
+  const el=document.getElementById("view-log");
+  const L=list().slice().sort((a,b)=>b.at.localeCompare(a.at));
+  if(!L.length){
+    el.innerHTML=`<div class="empty">
+      <h2>Még üres a napló</h2>
+      <p>Rögzíts minden étkezést, és amikor panaszod van, a tünetet is 0–10-es erősséggel. Crohn miatt a székletet a Bristol-skálán érdemes jelölni. Néhány hét után az Összefüggések fül megmutatja, mely ételek után jönnek gyakrabban panaszok.</p>
+      <div class="row"><button class="btn primary" data-add="meal">Első étkezés rögzítése</button><button class="btn" id="demoOn">Mintanapló megnézése</button></div>
+    </div>`;
+    return;
+  }
+  const groups={};
+  for(const e of L){const k=dayKey(new Date(e.at));(groups[k]=groups[k]||[]).push(e)}
+  let h="";
+  for(const k of Object.keys(groups)){
+    const g=groups[k];const d=new Date(g[0].at);
+    const meals=g.filter(e=>e.kind==="meal").length;
+    const sy=g.filter(e=>e.kind==="symptom");const mx=sy.length?Math.max(...sy.map(s=>s.severity||0)):null;
+    const st=g.filter(e=>e.kind==="stool").length;
+    h+=`<section class="day"><div class="dayhead"><h2>${esc(dayLabel(d))}</h2><span class="daysum">${meals} étk. · ${sy.length} tünet${mx!=null?" (max "+mx+")":""} · ${st} széklet</span></div><div class="list">`;
+    for(const e of g)h+=entryHtml(e);
+    h+=`</div></section>`;
+  }
+  el.innerHTML=h;
+}
+function entryHtml(e){
+  const d=new Date(e.at);const time=pad(d.getHours())+":"+pad(d.getMinutes());
+  let title="",chips=[],right="",kind="";
+  if(e.kind==="meal"){kind="Étkezés";title=esc(e.text||"Étkezés");chips=mealTags(e).map(t=>`<span class="chip">${esc(t)}</span>`)}
+  else if(e.kind==="symptom"){kind="Tünet";title=esc((e.items||[]).join(", ")||"Tünet");right=`<span class="sev" title="Erősség">${e.severity}/10</span>`}
+  else {kind="Széklet";title="Bristol "+e.bristol+" · "+esc(BSHORT[e.bristol]||"");
+    if(e.blood)chips.push(`<span class="chip" style="color:var(--sym)">vér</span>`);
+    if(e.mucus)chips.push(`<span class="chip">nyálka</span>`);
+    if(e.urgent)chips.push(`<span class="chip">sürgető</span>`);}
+  return `<button class="entry ${e.kind}" data-edit="${esc(e.id)}"><span class="time">${time}</span><span class="body"><span class="kindtag">${kind}</span><div class="title">${title}</div>${chips.length?`<div class="chips">${chips.join("")}</div>`:""}${e.note?`<div class="note">${esc(e.note)}</div>`:""}</span>${right}</button>`;
+}
+
+// ---------- render: insights ----------
+function renderIns(){
+  const el=document.getElementById("view-ins");
+  const L=list();
+  const meals=L.filter(e=>e.kind==="meal").sort((a,b)=>a.at.localeCompare(b.at));
+  const syms=L.filter(e=>e.kind==="symptom").sort((a,b)=>a.at.localeCompare(b.at));
+  const stools=L.filter(e=>e.kind==="stool");
+  const days=new Set(L.map(e=>dayKey(new Date(e.at)))).size;
+
+  // trigger analysis
+  const W=windowH*3600e3;
+  const hit=m=>{const t=+new Date(m.at);return syms.some(s=>{const st=+new Date(s.at);return st>t&&st-t<=W&&(s.severity||0)>=4})};
+  const flagged=new Map(meals.map(m=>[m.id,hit(m)]));
+  const base=meals.length?[...flagged.values()].filter(Boolean).length/meals.length:0;
+  const byTag={};
+  for(const m of meals)for(const t of mealTags(m)){(byTag[t]=byTag[t]||{n:0,h:0}).n++;if(flagged.get(m.id))byTag[t].h++}
+  const rows=Object.entries(byTag).filter(([,v])=>v.n>=3).map(([t,v])=>({t,n:v.n,r:v.h/v.n})).sort((a,b)=>b.r-a.r);
+
+  // last 14 days chart
+  const today=new Date();today.setHours(0,0,0,0);
+  const series=[];
+  for(let i=13;i>=0;i--){const d=new Date(today);d.setDate(d.getDate()-i);const k=dayKey(d);
+    const s=syms.filter(x=>dayKey(new Date(x.at))===k);
+    const b=stools.filter(x=>dayKey(new Date(x.at))===k);
+    series.push({d,max:s.length?Math.max(...s.map(x=>x.severity||0)):0,n:s.length,loose:b.filter(x=>x.bristol>=6).length,blood:b.some(x=>x.blood)})}
+  const avgSev=syms.length?(syms.reduce((a,s)=>a+(s.severity||0),0)/syms.length).toFixed(1):"–";
+  const symCount={};for(const s of syms)for(const n of s.items||[])symCount[n]=(symCount[n]||0)+1;
+  const topSym=Object.entries(symCount).sort((a,b)=>b[1]-a[1]).slice(0,5);
+
+  let h=`<section class="sec"><div class="stats">
+    <div class="stat"><div class="v">${days}</div><div class="k">naplózott nap</div></div>
+    <div class="stat"><div class="v">${meals.length}</div><div class="k">étkezés</div></div>
+    <div class="stat"><div class="v">${syms.length}</div><div class="k">tünet, átlag erősség ${avgSev}</div></div>
+    <div class="stat"><div class="v">${stools.filter(s=>s.bristol>=6).length}<span style="font-size:1rem;color:var(--muted)">/${stools.length}</span></div><div class="k">laza széklet (Bristol 6–7)</div></div>
+  </div></section>`;
+
+  h+=`<section class="sec"><h2>Mi után jönnek a panaszok?</h2>
+   <p class="lead">Az étkezések hány százalékát követte legalább 4-es erősségű tünet a választott időablakon belül. A függőleges vonal az összes étkezés átlaga. Reflux és gastritis esetén a 3 órás, Crohn-panaszoknál a 24 órás ablak beszédesebb.</p>
+   <div class="panel"><div class="seg" role="group" aria-label="Időablak">${[3,6,24].map(w=>`<button data-win="${w}" aria-pressed="${w===windowH}">${w} óra</button>`).join("")}</div>`;
+  if(!rows.length){h+=`<p class="lead" style="margin:0">Egy címkéhez legalább 3 étkezés kell, hogy itt megjelenjen. Jelöld a címkéket az étkezéseknél (kávé, zsíros, tejtermék…), és pár nap múlva kirajzolódik a lista.</p>`}
+  else{
+    for(const r of rows){const pct=Math.round(r.r*100),bp=Math.round(base*100);
+      h+=`<div class="trig"><div class="nm">${esc(r.t)}<small>${r.n} étkezés</small></div><div class="bar" aria-hidden="true"><i class="${r.r>base*1.3&&r.r>=.3?"hi":""}" style="width:${pct}%"></i><b style="left:calc(${bp}% - 1px)"></b></div><div class="pct">${pct}%</div></div>`}
+    h+=`<div class="legend"><span style="--c:var(--sym)">jóval az átlag felett</span><span style="--c:var(--muted)">átlag körül vagy alatta</span><span style="--c:var(--fg)">átlag: ${Math.round(base*100)}%</span></div>`;
+  }
+  h+=`</div><p class="fine">Ez együttjárást mutat, nem bizonyít ok-okozatot. Ha valami gyanús, hozd el a gasztroenterológushoz, és ő dönt az étrendi változtatásról.</p></section>`;
+
+  // chart
+  const cw=640,ch=170,padL=26,padB=34,padT=10,bw=(cw-padL-8)/14;
+  const y=v=>padT+(ch-padT-padB)*(1-v/10);
+  let svg=`<svg viewBox="0 0 ${cw} ${ch}" width="100%" style="min-width:520px" role="img" aria-label="Napi legerősebb tünet az elmúlt 14 napban">`;
+  for(const g of [0,5,10])svg+=`<line x1="${padL}" x2="${cw-4}" y1="${y(g)}" y2="${y(g)}" stroke="var(--line)" stroke-width="1"/><text x="${padL-6}" y="${y(g)+3}" text-anchor="end">${g}</text>`;
+  series.forEach((s,i)=>{const x=padL+i*bw+bw*.18,w=bw*.64;
+    if(s.max>0)svg+=`<rect x="${x}" y="${y(s.max)}" width="${w}" height="${y(0)-y(s.max)}" rx="3" fill="${s.max>=7?"var(--sym)":s.max>=4?"var(--warn)":"var(--accent)"}"><title>${s.d.getMonth()+1}.${s.d.getDate()}.: max ${s.max}, ${s.n} tünet</title></rect>`;
+    if(s.loose)svg+=`<circle cx="${x+w/2}" cy="${ch-padB+8}" r="3.5" fill="${s.blood?"var(--sym)":"var(--stool)"}"/>`;
+    svg+=`<text x="${x+w/2}" y="${ch-6}" text-anchor="middle">${s.d.getDate()}</text>`;});
+  svg+=`</svg>`;
+  h+=`<section class="sec"><h2>Az elmúlt 14 nap</h2><p class="lead">Oszlop: a nap legerősebb tünete. Pont alatta: laza széklet aznap (piros, ha vért is jelöltél).</p><div class="panel chartbox">${svg}</div></section>`;
+
+  if(topSym.length)h+=`<section class="sec"><h2>Leggyakoribb tünetek</h2><div class="panel">${topSym.map(([n,c])=>`<div class="trig"><div class="nm">${esc(n)}</div><div class="bar"><i style="width:${Math.round(c/topSym[0][1]*100)}%;background:var(--accent)"></i></div><div class="pct">${c}×</div></div>`).join("")}</div></section>`;
+
+  h+=`<section class="sec"><h2>Orvosi vizithez</h2><p class="lead">Az egész naplót CSV-táblázatként mentheted, Excelben vagy Google Táblázatokban megnyitható.</p><button class="btn primary" id="exportCsv">Napló mentése CSV-ként</button></section>
+  <section class="sec"><h2>Biztonsági mentés</h2><p class="lead">A teljes naplót egy fájlba mentheted, és később visszatöltheted, akár egy másik eszközön vagy az Android alkalmazásban. Betöltéskor a meglévő bejegyzések megmaradnak, csak az újak kerülnek be.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="exportJson">Mentés fájlba</button><label class="btn" for="importFile" style="display:inline-block">Betöltés fájlból</label><input type="file" id="importFile" accept=".json,application/json" hidden></div></section>`;
+  el.innerHTML=h;
+}
+
+// ---------- sheet (add / edit) ----------
+let draft=null;
+function openSheet(kind,existing){
+  const now=new Date();
+  draft=existing?JSON.parse(JSON.stringify(existing)):{id:uid(),kind,at:localInput(now)};
+  if(existing)draft.at=localInput(new Date(existing.at));
+  if(draft.kind==="meal"){draft.tags=draft.tags||[]}
+  if(draft.kind==="symptom"){draft.items=draft.items||[];if(draft.severity==null)draft.severity=4}
+  if(draft.kind==="stool"){if(!draft.bristol)draft.bristol=4}
+  draft._editing=!!existing;drawSheet();
+}
+function drawSheet(){
+  const root=document.getElementById("sheetRoot");
+  if(!draft){root.innerHTML="";return}
+  const d=draft,k=d.kind;
+  const color={meal:"var(--meal)",symptom:"var(--sym)",stool:"var(--stool)"}[k];
+  const titles={meal:"Étkezés",symptom:"Tünet",stool:"Széklet"};
+  let f=`<div class="field"><label for="f-at">Időpont</label><input type="datetime-local" id="f-at" value="${esc(d.at)}"></div>`;
+  if(k==="meal"){
+    f+=`<div class="field"><label for="f-text">Mit ettél, ittál?</label><input type="text" id="f-text" placeholder="pl. rántott csirke, rizs, kóla" value="${esc(d.text||"")}"></div>
+    <div class="field"><span class="lbl">Jellemzők</span><div class="pick" data-multi="tags">${FOOD_TAGS.map(t=>`<button type="button" data-v="${esc(t)}" aria-pressed="${d.tags.includes(t)}">${esc(t)}</button>`).join("")}</div><div class="bdesc">A 21 óra utáni étkezést automatikusan „késői”-nek jelölöm.</div></div>`;
+  }else if(k==="symptom"){
+    const groups=["reflux","gastritis","Crohn","általános"];
+    f+=`<div class="field"><span class="lbl">Mit érzel?</span>${groups.map(g=>`<div class="bdesc" style="margin:6px 0 4px">${g}</div><div class="pick" data-multi="items">${SYMPTOMS.filter(s=>s.c===g).map(s=>`<button type="button" data-v="${esc(s.n)}" aria-pressed="${d.items.includes(s.n)}">${esc(s.n)}</button>`).join("")}</div>`).join("")}</div>
+    <div class="field"><span class="lbl">Erősség</span><div class="scale">${Array.from({length:11},(_,i)=>`<button type="button" data-sev="${i}" aria-pressed="${d.severity===i}">${i}</button>`).join("")}</div><div class="scalecap"><span>nincs</span><span>közepes</span><span>elviselhetetlen</span></div></div>`;
+  }else{
+    f+=`<div class="field"><span class="lbl">Bristol-skála</span><div class="bristol">${[1,2,3,4,5,6,7].map(i=>`<button type="button" data-bristol="${i}" aria-pressed="${d.bristol===i}">${i}<small>${BSHORT[i]}</small></button>`).join("")}</div><div class="bdesc">${esc(BRISTOL[d.bristol])}</div></div>
+    <div class="field"><span class="lbl">Egyéb</span><div class="pick">
+      <button type="button" data-flag="blood" aria-pressed="${!!d.blood}">vér</button>
+      <button type="button" data-flag="mucus" aria-pressed="${!!d.mucus}">nyálka</button>
+      <button type="button" data-flag="urgent" aria-pressed="${!!d.urgent}">sürgető</button>
+      <button type="button" data-flag="night" aria-pressed="${!!d.night}">éjszaka ébredtem rá</button></div></div>`;
+  }
+  f+=`<div class="field"><label for="f-note">Megjegyzés</label><textarea id="f-note" placeholder="${k==="meal"?"hol, mennyi, stresszes volt-e…":"gyógyszer, stressz, alvás…"}">${esc(d.note||"")}</textarea></div>`;
+  f+=`<div class="actions">${d._editing?(d._confirm?`<span class="confirmdel">Biztosan törlöd? <button class="btn danger" id="delYes">Törlés</button><button class="btn ghost" id="delNo">Mégse</button></span>`:`<button class="btn ghost" id="delAsk">Törlés</button>`):""}<span class="r"><button class="btn" id="cancel">Mégse</button><button class="btn primary" id="save">Mentés</button></span></div>`;
+  root.innerHTML=`<div class="scrim" id="scrim"><div class="sheet" role="dialog" aria-modal="true" aria-label="${titles[k]}" style="--k:${color}"><h2>${d._editing?titles[k]+" szerkesztése":"Új "+titles[k].toLowerCase()}</h2>${f}</div></div>`;
+  const tx=root.querySelector("#f-text");if(tx&&!d._editing)setTimeout(()=>tx.focus(),50);
+}
+function syncInputs(){
+  if(!draft)return;const r=document.getElementById("sheetRoot");
+  const at=r.querySelector("#f-at");if(at)draft.at=at.value;
+  const tx=r.querySelector("#f-text");if(tx)draft.text=tx.value;
+  const nt=r.querySelector("#f-note");if(nt)draft.note=nt.value;
+}
+function commit(){
+  syncInputs();const d=draft;
+  if(d.kind==="symptom"&&!d.items.length){toast("Jelölj legalább egy tünetet.");return}
+  if(d.kind==="meal"&&!(d.text||"").trim()&&!d.tags.length){toast("Írd be, mit ettél.");return}
+  const at=new Date(d.at);if(isNaN(at)){toast("Az időpont hiányzik.");return}
+  const out={id:d.id,kind:d.kind,at:at.toISOString(),note:(d.note||"").trim()};
+  if(d.kind==="meal"){out.text=(d.text||"").trim();out.tags=d.tags}
+  if(d.kind==="symptom"){out.items=d.items;out.severity=d.severity}
+  if(d.kind==="stool"){out.bristol=d.bristol;out.blood=!!d.blood;out.mucus=!!d.mucus;out.urgent=!!d.urgent;out.night=!!d.night}
+  const wasEdit=d._editing;draft=null;drawSheet();saveEntry(out);if(!demo)toast(wasEdit?"Módosítva":"Elmentve");
+}
+
+// ---------- csv ----------
+async function exportCsv(){
+  const L=list().slice().sort((a,b)=>a.at.localeCompare(b.at));
+  const q=v=>'"'+String(v==null?"":v).replace(/"/g,'""')+'"';
+  const lines=[["dátum","idő","típus","leírás","címkék / tünetek","erősség (0-10)","Bristol","vér","nyálka","sürgető","megjegyzés"].map(q).join(";")];
+  for(const e of L){const d=new Date(e.at);
+    lines.push([dayKey(d),pad(d.getHours())+":"+pad(d.getMinutes()),{meal:"étkezés",symptom:"tünet",stool:"széklet"}[e.kind],
+      e.text||"",e.kind==="meal"?mealTags(e).join(", "):(e.items||[]).join(", "),e.kind==="symptom"?e.severity:"",e.bristol||"",
+      e.kind==="stool"?(e.blood?"igen":"nem"):"",e.kind==="stool"?(e.mucus?"igen":"nem"):"",e.kind==="stool"?(e.urgent?"igen":"nem"):"",e.note||""].map(q).join(";"))}
+  await saveFile("hasnaplo-"+dayKey(new Date())+".csv","text/csv","﻿"+lines.join("\r\n"));
+}
+async function saveFile(name,mime,content){
+  if(window.Android&&window.Android.saveToDownloads){
+    const r=window.Android.saveToDownloads(name,mime,content);
+    toast(r==="ok"?"Mentve a Letöltések mappába: "+name:"A mentés nem sikerült: "+r);return;
+  }
+  try{const dl=window.claude&&await window.claude.use("downloads");
+    if(!dl){toast("A mentés ebben a nézetben nem érhető el.");return}
+    const r=await dl.save({filename:name,data:content});
+    if(r&&r.status==="saved")toast("Mentve");
+  }catch(e){if(!e||e.code!=="declined"&&e.code!=="cancelled")toast("A mentés nem sikerült.")}
+}
+async function exportJson(){
+  const data={app:"hasnaplo",version:1,exported:new Date().toISOString(),entries:entries};
+  await saveFile("hasnaplo-mentes-"+dayKey(new Date())+".json","application/json",JSON.stringify(data,null,1));
+}
+async function importJson(file){
+  let data;
+  try{data=JSON.parse(await file.text())}catch(e){toast("Ez nem Hasnapló mentésfájl.");return}
+  const list=Array.isArray(data)?data:data&&data.entries;
+  if(!Array.isArray(list)){toast("Ez nem Hasnapló mentésfájl.");return}
+  const ok=list.filter(e=>e&&typeof e.id==="string"&&typeof e.at==="string"&&["meal","symptom","stool"].includes(e.kind));
+  const have=new Set(entries.map(e=>e.id));
+  const fresh=ok.filter(e=>!have.has(e.id));
+  if(demo){demo=null;document.getElementById("demoBanner").hidden=true}
+  for(const e of fresh)await saveEntry(e);
+  toast(fresh.length?fresh.length+" bejegyzés betöltve":"Nem volt új bejegyzés a fájlban.");
+}
+
+// ---------- demo ----------
+function makeDemo(){
+  const out=[];const now=new Date();
+  const add=(dd,h,m,o)=>{const d=new Date(now);d.setDate(d.getDate()-dd);d.setHours(h,m,0,0);if(d>now)return;out.push(Object.assign({id:uid(),at:d.toISOString(),note:""},o))};
+  for(let i=0;i<12;i++){
+    add(i,7,30,{kind:"meal",text:"zabkása, banán, kávé",tags:i%3?["kávé"]:["kávé","tejtermék"]});
+    if(i%3===0)add(i,9,15,{kind:"symptom",items:["gyomorégés"],severity:5});
+    add(i,12,40,{kind:"meal",text:i%2?"menza: pörkölt, nokedli":"csirkemell, rizs, saláta",tags:i%2?["zsíros/sült","csípős","hagyma/fokhagyma"]:["nyers zöldség"]});
+    if(i%2)add(i,14,30,{kind:"symptom",items:["savas felböfögés","teltségérzet"],severity:6});
+    add(i,i%4===0?21:19,i%4===0?45:0,{kind:"meal",text:i%4===0?"pizza, sör":"leves, kenyér",tags:i%4===0?["glutén","alkohol","zsíros/sült","paradicsom","nagy adag"]:["glutén"]});
+    if(i%4===0){add(i,23,30,{kind:"symptom",items:["gyomorégés","köhögés/rekedtség"],severity:7})}
+    add(i,8,20,{kind:"stool",bristol:i%4===1?6:4,urgent:i%4===1});
+    if(i%4===1)add(i,10,0,{kind:"symptom",items:["görcsök","alhasi fájdalom"],severity:4,note:"előző este pizza"});
+  }
+  return out;
+}
+
+// ---------- events ----------
+document.addEventListener("click",ev=>{
+  const t=ev.target.closest("button");if(!t){if(ev.target.id==="scrim"){draft=null;drawSheet()}return}
+  if(t.dataset.add){openSheet(t.dataset.add);return}
+  if(t.dataset.edit){const e=list().find(x=>x.id===t.dataset.edit);if(e)openSheet(e.kind,e);return}
+  if(t.id==="tab-log"||t.id==="tab-ins"){tab=t.id==="tab-log"?"log":"ins";
+    document.getElementById("tab-log").setAttribute("aria-selected",tab==="log");document.getElementById("tab-ins").setAttribute("aria-selected",tab==="ins");
+    document.getElementById("view-log").hidden=tab!=="log";document.getElementById("view-ins").hidden=tab!=="ins";render();return}
+  if(t.dataset.win){windowH=+t.dataset.win;renderIns();return}
+  if(t.id==="demoOn"){demo=makeDemo();document.getElementById("demoBanner").hidden=false;render();return}
+  if(t.id==="demoOff"){demo=null;document.getElementById("demoBanner").hidden=true;render();return}
+  if(t.id==="exportCsv"){exportCsv();return}
+  if(!draft)return;
+  syncInputs();
+  const multi=t.parentElement&&t.parentElement.dataset.multi;
+  if(multi&&t.dataset.v){const a=draft[multi];const i=a.indexOf(t.dataset.v);if(i>=0)a.splice(i,1);else a.push(t.dataset.v);t.setAttribute("aria-pressed",i<0);return}
+  if(t.dataset.sev){draft.severity=+t.dataset.sev;drawSheet();return}
+  if(t.dataset.bristol){draft.bristol=+t.dataset.bristol;drawSheet();return}
+  if(t.dataset.flag){draft[t.dataset.flag]=!draft[t.dataset.flag];t.setAttribute("aria-pressed",!!draft[t.dataset.flag]);return}
+  if(t.id==="cancel"){draft=null;drawSheet();return}
+  if(t.id==="save"){commit();return}
+  if(t.id==="delAsk"){draft._confirm=true;drawSheet();return}
+  if(t.id==="delNo"){draft._confirm=false;drawSheet();return}
+  if(t.id==="delYes"){const id=draft.id;draft=null;drawSheet();removeEntry(id);toast("Törölve");return}
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&draft){draft=null;drawSheet()}});
+document.addEventListener("click",ev=>{const t=ev.target.closest("button");if(t&&t.id==="exportJson")exportJson()});
+document.addEventListener("change",ev=>{if(ev.target.id==="importFile"&&ev.target.files[0]){importJson(ev.target.files[0]);ev.target.value=""}});
+// Android back button: close the sheet first, then go back to the log tab
+window.hasnaploBack=function(){
+  if(draft){draft=null;drawSheet();return true}
+  if(tab!=="log"){document.getElementById("tab-log").click();return true}
+  return false;
+};
+
+entries=lsGet();
+render();
+connect();
+})();
+</script>
+
+</body></html>
